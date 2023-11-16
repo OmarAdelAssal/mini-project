@@ -1,8 +1,22 @@
 {% extends "books/layouts/base.html" %}
-{%load static%}
+{% load static %}
 
-{%block 'iti'%}
+{% block 'iti' %}
 
-<h1>  books file </h1>
+<h1 style="text-align: center; color: #73aee7;">PDF Books in all subjects</h1>
+<div style="display: flex; flex-wrap: wrap; gap: 20px;"> 
 
-{% endblock 'iti'%}
+  {% for book in books %}
+    <div class="card" style="width: 12rem; height:30px; margin-bottom: 20px; margin-right: 20px;"> 
+      <img src="{{book.get_image_url}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{book.name}}</h5>
+        <p class="card-text"></p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  {% endfor %}
+
+</div>
+
+{% endblock 'iti' %}
